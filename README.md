@@ -1,6 +1,7 @@
 # contact
 
-A new Flutter application.
+Uses http package to show data from https://jsonplaceholder.typicode.com/.
+Trying out Futures, and getting hang of Flutter's state management.
 
 ## Getting Started
 
