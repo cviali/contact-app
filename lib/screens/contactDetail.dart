@@ -3,22 +3,23 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
-import 'models/contact.dart';
+import '../models/contact.dart';
 
-class DetailPage extends StatefulWidget {
+class ContactDetailPage extends StatefulWidget {
   final int id;
 
-  const DetailPage({Key key, this.id}) : super(key: key);
+  const ContactDetailPage({Key key, this.id}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _DetailPageState();
+    return _ContactDetailPageState();
   }
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _ContactDetailPageState extends State<ContactDetailPage> {
   Contact _contact = Contact();
   bool isFetching = false;
+  String title = 'Contact Detail';
 
   Future<Contact> _getDetail() async {
     setState(() {
@@ -29,6 +30,7 @@ class _DetailPageState extends State<DetailPage> {
 
     String url =
         "https://jsonplaceholder.typicode.com/users/" + widget.id.toString();
+    print(url);
 
     Response response = await get(url);
 
@@ -48,6 +50,7 @@ class _DetailPageState extends State<DetailPage> {
     _getDetail().then((result) {
       setState(() {
         _contact = result;
+        title = _contact.name;
       });
     });
   }
@@ -65,7 +68,7 @@ class _DetailPageState extends State<DetailPage> {
           children: <Widget>[
             Text(_contact.name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
             Text(_contact.email),
-            Text(_contact.position),
+            Text(_contact.position)
           ],
         ),
       );
@@ -76,7 +79,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Contact Detail"),
+          title: Text(title),
         ),
         body: detailPage());
   }

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1060221024557",
+    "firebase_url": "https://rsvp-merah.firebaseio.com",
+    "project_id": "rsvp-merah",
+    "storage_bucket": "rsvp-merah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060221024557:android:338f1a0da8a90cf5fdfba4",
+        "android_client_info": {
+          "package_name": "com.bounche.rsvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060221024557-8j2diqkqd2og64bjhikdgts1lopapki5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSAhtGSSR-eMlPqKFe7Sl_iBmixdDuM94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060221024557-8j2diqkqd2og64bjhikdgts1lopapki5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060221024557:android:477c90a24ea2e24afdfba4",
+        "android_client_info": {
+          "package_name": "com.example.contact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060221024557-8j2diqkqd2og64bjhikdgts1lopapki5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSAhtGSSR-eMlPqKFe7Sl_iBmixdDuM94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060221024557-8j2diqkqd2og64bjhikdgts1lopapki5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
