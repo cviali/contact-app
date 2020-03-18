@@ -15,10 +15,12 @@ import 'package:qrscan/qrscan.dart' as scanner;
 void main() {
   Crashlytics.instance.enableInDevMode = true;
   FlutterError.onError = Crashlytics.instance.recordFlutterError;
-  
-  runZoned((){
+
+
     runApp(MyApp());
-  }, onError: Crashlytics.instance.recordError);
+//  runZoned((){
+//    runApp(MyApp());
+//  }, onError: Crashlytics.instance.recordError);
 }
 
 class MyApp extends StatelessWidget {

@@ -54,6 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(4)))),
                     controller: usernameController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Username cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Container(
@@ -65,6 +71,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(4)))),
                     controller: nameController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Name cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Container(
@@ -76,6 +88,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(4)))),
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Email cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Container(
@@ -88,6 +107,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 BorderRadius.all(Radius.circular(4)))),
                     obscureText: true,
                     controller: passwordController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Password cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 Container(
@@ -119,6 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: Text("Register"),
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
+                              Navigator.pop(context);
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(

@@ -4,12 +4,14 @@ import 'package:contact/screens/contacts.dart';
 import 'package:contact/screens/loginPage.dart';
 import 'package:contact/screens/photos.dart';
 import 'package:contact/screens/scan.dart';
+import 'package:contact/utilities/httpRequest.dart';
+import 'package:contact/utilities/sharedPreferencesRequest.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomePage extends StatefulWidget{
@@ -28,7 +30,7 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage>{
   int _selectedIndex = 0;
-  String barcode = '';
+  String barcode = '', title = '';
   final FirebaseAnalytics analytics;
   final FirebaseAnalyticsObserver observer;
 
@@ -58,12 +60,23 @@ class _HomePageState extends State<HomePage>{
       _selectedIndex = index;
     });
   }
+  @override
+  void initState() {
+    SharedPreferences.getInstance().then((prefs){
+      API.getProfile(prefs.getString("access_token")).then((result){
+        setState(() {
+          title = "Hi, "+ result;
+        });
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){
             Navigator.pushReplacement(
